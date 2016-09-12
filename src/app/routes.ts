@@ -6,20 +6,12 @@ export const routes: RouterConfig = [
   {
     path: '',
     component: Main,
-    canActivate: [
-      AuthService
-    ],
+    canActivate: [AuthService],
     children: [
       { path: '', component: Notes },
       { path: 'about', component: About }
     ]
   },
-  {
-    path: 'auth',
-    component: Auth
-  },
-  {
-    path: '**',
-    redirectTo: ''
-  }
+  { path: 'auth', component: Auth },
+  { path: '**', redirectTo: '' }
 ];

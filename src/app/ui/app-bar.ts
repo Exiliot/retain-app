@@ -28,15 +28,15 @@ import { ROUTER_DIRECTIVES } from '@angular/router';
   template: `
     <header class="app-bar row middle-xs">
       <span [routerLink]="['']" class="logo col-xs-10">
-        Retain App
+        Retain
       </span>
       <nav class="col-xs-2">
         <div class="row middle-xs between-xs">
           <span [routerLink]="['', 'about']" class="link">About</span>
-          <span class="link">Sign out</span>
+          <span class="link">signout</span>
         </div>
       </nav>
     </header>
   `
 })
-export class AppBar {};
+export class AppBar {}

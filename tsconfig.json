@@ -2,10 +2,6 @@
   "compilerOptions": {
     "module": "commonjs",
     "target": "es5",
-    "declaration": false,
-    "noImplicitAny": false,
-    "removeComments": true,
-    "noLib": false,
     "outDir": "dist",
     "rootDir": ".",
     "sourceMap": true,

@@ -1,20 +1,21 @@
 import { Injectable } from '@angular/core';
-import { ApiService } from './api';
+import { Note } from '../store';
 import { StoreHelper } from './store-helper';
+import { ApiService } from './api';
 import 'rxjs/Rx';
 
 @Injectable()
 export class NoteService {
-  constructor(
-    private apiService: ApiService,
-    private storeHelper: StoreHelper
-  ) {}
 
   path: string = '/notes';
+  constructor(
+    private storeHelper: StoreHelper,
+    private apiService: ApiService
+  ) {}
 
-  createNote(note) {
+  createNote(note: Note) {
     return this.apiService.post(this.path, note)
-        .do(savedNote => this.storeHelper.add('notes', savedNote));
+      .do(savedNote => this.storeHelper.add('notes', savedNote));
   }
 
   getNotes() {
@@ -22,8 +23,8 @@ export class NoteService {
       .do(res => this.storeHelper.update('notes', res.data));
   }
 
-  completeNote(note) {
+  completeNote(note: Note) {
     return this.apiService.delete(`${ this.path }/${ note.id }`)
       .do(res => this.storeHelper.findAndDelete('notes', res.id));
   }
-};
+}

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Main } from './containers';
 import { ROUTER_DIRECTIVES } from '@angular/router';
 
 @Component({
@@ -7,7 +8,7 @@ import { ROUTER_DIRECTIVES } from '@angular/router';
     ...ROUTER_DIRECTIVES
   ],
   template: `
-    <div>
+    <div class="app">
       <router-outlet></router-outlet>
     </div>
   `

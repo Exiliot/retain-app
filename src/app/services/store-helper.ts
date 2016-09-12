@@ -3,7 +3,7 @@ import { Store } from '../store';
 
 @Injectable()
 export class StoreHelper {
-  constructor(private store: Store) { }
+  constructor(private store: Store) {}
 
   update(prop, state) {
     const currentState = this.store.getState();
@@ -19,14 +19,15 @@ export class StoreHelper {
   findAndUpdate(prop, state) {
     const currentState = this.store.getState();
     const collection = currentState[prop];
+
     this.store.setState(Object.assign({}, currentState, {
-    [prop]: collection.map(item => {
-      if (item.id !== state.id) {
-        return item;
-      }
-      return Object.assign({}, item, state)
-    })
-    }))
+      [prop]: collection.map(item => {
+        if (item.id !== state.id) {
+          return item;
+        }
+        return Object.assign({}, item, state)
+      })
+     }));
   }
 
   findAndDelete(prop, id) {

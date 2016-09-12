@@ -28,8 +28,7 @@ const _store = new BehaviorSubject<State>(defaultState);
 export class Store {
   private _store = _store;
   changes = this._store.asObservable()
-    .distinctUntilChanged()
-    .do(() => console.debug('changes'));
+    .distinctUntilChanged();
 
   setState(state: State) {
     console.debug('state set', state);
